@@ -1,7 +1,7 @@
 package com.example.clubprojecthomework.Service;
 
 import com.example.clubprojecthomework.*;
-import com.example.clubprojecthomework.Repository.BoardMappingRepository;
+import com.example.clubprojecthomework.Repository.BoardNumberAndTitleRepository;
 import com.example.clubprojecthomework.Repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ServiceImpl implements Service{
 
     private final BoardRepository boardRepository;
-    private final BoardMappingRepository boardRepo;
+    private final BoardNumberAndTitleRepository boardNumberAndTitleRepository;
 
     @Override
     public String Insert(BoardDto board) {
@@ -24,8 +24,8 @@ public class ServiceImpl implements Service{
     }
 
     @Override
-    public List<BoardMapping> List() {
-        return boardRepo.findAllBy();
+    public List<BoardNumberAndTitle> List() {
+        return boardNumberAndTitleRepository.findAllBy();
     }
 
     @Override
