@@ -16,7 +16,7 @@ public class Controller {
 
     private final Service service;
 
-    @PostMapping("/board/insert")
+    @PostMapping("/board")
     public String Insert(@RequestBody BoardDto board){
         return service.Insert(board);
     }
@@ -26,7 +26,7 @@ public class Controller {
         return service.List();
     }
 
-    @PutMapping("/board/edit/{number}")
+    @PutMapping("/board/{number}")
     public String Edit(@RequestBody BoardDto board, @PathVariable("number")int number){
         return service.Edit(number, board);
     }
@@ -37,7 +37,7 @@ public class Controller {
         return service.Found(number);
     }
 
-    @DeleteMapping("/board/delete/{number}")
+    @DeleteMapping("/board/{number}")
     public String Delete(@PathVariable("number")int number){
         return service.Delete(number);
     }
