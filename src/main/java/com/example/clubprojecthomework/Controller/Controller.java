@@ -16,7 +16,7 @@ public class Controller {
 
     private final Service service;
 
-    @PostMapping("/board/input")
+    @PostMapping("/board/insert")
     public String Insert(@RequestBody BoardDto board){
         return service.Insert(board);
     }
@@ -27,17 +27,17 @@ public class Controller {
     }
 
     @PutMapping("/board/edit/{number}")
-    public String Retouch(@RequestBody BoardDto board, @PathVariable("number")int number){
-        return service.Retouch(number, board);
+    public String Edit(@RequestBody BoardDto board, @PathVariable("number")int number){
+        return service.Edit(number, board);
     }
 
     @GetMapping("/board/{number}")
-    public Optional<Board> Find(@PathVariable("number")int number)
+    public Optional<Board> Found(@PathVariable("number")int number)
     {
-        return service.Find(number);
+        return service.Found(number);
     }
 
-    @DeleteMapping("/board/{number}")
+    @DeleteMapping("/board/delete/{number}")
     public String Delete(@PathVariable("number")int number){
         return service.Delete(number);
     }

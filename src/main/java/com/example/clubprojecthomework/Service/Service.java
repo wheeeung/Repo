@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface Service {
     public String Insert(BoardDto board);
     public List<BoardNumberAndTitle> List();
-    public String Retouch(int number, BoardDto board);
-    public Optional<Board> Find(int number);
+    public String Edit(int number, BoardDto board);
+    public Optional<Board> Found(int number);
     public String Delete(int number);
 }

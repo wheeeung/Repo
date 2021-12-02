@@ -20,7 +20,7 @@ public class ServiceImpl implements Service{
     public String Insert(BoardDto board) {
         Board boardEntity = new Board(board.getNumber(),board.getWriter(),board.getTitle(),board.getContents());
         boardRepository.save(boardEntity);
-        return "입력되었습니다.";
+        return "게시물이 입력되었습니다.";
     }
 
     @Override
@@ -30,23 +30,22 @@ public class ServiceImpl implements Service{
 
     @Override
     @Transactional
-    public String Retouch(int number, BoardDto board) {
+    public String Edit(int number, BoardDto board) {
         Board find = boardRepository.findById(number).get();
         find.setWriter(board.getWriter());
         find.setTitle(board.getTitle());
         find.setContents(board.getContents());
-        Find(number);
-        return "수정되었습니다.";
+        return "게시물이 수정되었습니다.";
     }
 
     @Override
-    public Optional<Board> Find(int number) {
+    public Optional<Board> Found(int number) {
         return boardRepository.findById(number);
     }
 
     @Override
     public String Delete(int number) {
         boardRepository.deleteById(number);
-        return "삭제되었습니다.";
+        return "게시물이 삭제되었습니다.";
     }
 }
