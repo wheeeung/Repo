@@ -1,4 +1,4 @@
-package com.example.clubprojecthomework;
+package com.example.clubprojecthomework.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "BOARD")
-public class Board {
+public class BoardEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

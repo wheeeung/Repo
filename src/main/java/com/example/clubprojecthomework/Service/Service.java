@@ -1,16 +1,16 @@
 package com.example.clubprojecthomework.Service;
 
-import com.example.clubprojecthomework.Board;
-import com.example.clubprojecthomework.BoardDto;
-import com.example.clubprojecthomework.BoardNumberAndTitle;
+import com.example.clubprojecthomework.Entity.BoardEntity;
+import com.example.clubprojecthomework.Dto.BoardDto;
+import com.example.clubprojecthomework.Dto.BoardNumberAndTitleDto;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface Service {
-    public String Insert(BoardDto board);
-    public List<BoardNumberAndTitle> List();
-    public String Edit(int number, BoardDto board);
-    public Optional<Board> Found(int number);
-    public String Delete(int number);
+    public String insert(BoardDto board);
+    public List<BoardNumberAndTitleDto> list();
+    public String edit(int number, BoardDto board);
+    public Optional<BoardEntity> found(int number);
+    public void delete(int number);
 }

@@ -1,4 +1,4 @@
-package com.example.clubprojecthomework;
+package com.example.clubprojecthomework.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

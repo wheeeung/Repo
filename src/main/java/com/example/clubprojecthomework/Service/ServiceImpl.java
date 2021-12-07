@@ -1,6 +1,8 @@
 package com.example.clubprojecthomework.Service;
 
-import com.example.clubprojecthomework.*;
+import com.example.clubprojecthomework.Dto.BoardDto;
+import com.example.clubprojecthomework.Dto.BoardNumberAndTitleDto;
+import com.example.clubprojecthomework.Entity.BoardEntity;
 import com.example.clubprojecthomework.Repository.BoardNumberAndTitleRepository;
 import com.example.clubprojecthomework.Repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,21 +19,21 @@ public class ServiceImpl implements Service{
     private final BoardNumberAndTitleRepository boardNumberAndTitleRepository;
 
     @Override
-    public String Insert(BoardDto board) {
-        Board boardEntity = new Board(board.getNumber(),board.getWriter(),board.getTitle(),board.getContents());
+    public String insert(BoardDto board) {
+        BoardEntity boardEntity = new BoardEntity(board.getNumber(),board.getWriter(),board.getTitle(),board.getContents());
         boardRepository.save(boardEntity);
         return "게시물이 입력되었습니다.";
     }
 
     @Override
-    public List<BoardNumberAndTitle> List() {
+    public List<BoardNumberAndTitleDto> list() {
         return boardNumberAndTitleRepository.findAllBy();
     }
 
     @Override
     @Transactional
-    public String Edit(int number, BoardDto board) {
-        Board find = boardRepository.findById(number).get();
+    public String edit(int number, BoardDto board) {
+        BoardEntity find = boardRepository.findById(number).get();
         find.setWriter(board.getWriter());
         find.setTitle(board.getTitle());
         find.setContents(board.getContents());
@@ -39,13 +41,12 @@ public class ServiceImpl implements Service{
     }
 
     @Override
-    public Optional<Board> Found(int number) {
+    public Optional<BoardEntity> found(int number) {
         return boardRepository.findById(number);
     }
 
     @Override
-    public String Delete(int number) {
+    public void delete(int number) {
         boardRepository.deleteById(number);
-        return "게시물이 삭제되었습니다.";
     }
 }
